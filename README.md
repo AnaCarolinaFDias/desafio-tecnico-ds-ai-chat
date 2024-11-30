@@ -43,22 +43,19 @@ Identificar e justificar a solução de RAG mais eficiente e eficaz, com base em
 
 pip install -r requirements.txt
 
-📂 Estrutura do Repositório
+# 📂 Estrutura do Repositório
 
 desafio-tecnico-rag/
-├── data/                  # Dados brutos e processados
+├── inputs/                  # Dados brutos e processados
 ├── notebooks/             # Análises exploratórias e experimentos
 ├── src/                   # Código-fonte principal
 │   ├── evaluate_rag.py    # Scripts para treinamento e avaliação
 │   ├── run_chatbot.py     # Aplicação interativa de teste
 │   ├── generate_report.py # Geração do relatório técnico
-├── reports/               # Relatório consolidado (PDF/Markdown)
-├── tests/                 # Testes automatizados
-├── config.yaml            # Configurações de parâmetros
 ├── requirements.txt       # Dependências do projeto
 └── README.md              # Documentação do repositório
 
-🧪 Métricas de Avaliação
+# 🧪 Métricas de Avaliação
 Para comparar os métodos de RAG, as seguintes métricas foram utilizadas:
 
 Precisão: Relevância dos chunks recuperados.
@@ -67,7 +64,7 @@ Escalabilidade: Desempenho com grandes volumes de dados.
 Satisfação: Avaliação qualitativa dos resultados gerados.
 Essas métricas foram escolhidas com base na relevância para tarefas de recuperação e geração.
 
-📊 Resultados
+# 📊 Resultados
 Os resultados comparativos entre os métodos serão apresentados no relatório técnico disponível na pasta reports/.
 
 Os principais pontos incluem:
@@ -75,6 +72,7 @@ Os principais pontos incluem:
 Eficiência computacional.
 Relevância dos resultados para diferentes tipos de consultas.
 Justificativa da melhor solução com base nas métricas analisadas.
-🤝 Como Contribuir
+
+# 🤝 Como Contribuir
 Sugestões e melhorias são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
