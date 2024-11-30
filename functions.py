@@ -1,6 +1,7 @@
 import tqdm as notebook_tqdm
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
 from langchain.schema import Document
 from uuid import uuid4
@@ -8,7 +9,9 @@ import os
 import json
 import pandas as pd
 from dotenv import load_dotenv
+import getpass
 import logging
+
 
 # Configurar o logging para salvar a saída de debug em um arquivo
 logging.basicConfig(
@@ -20,7 +23,7 @@ logging.basicConfig(
 logger = logging.getLogger()
 load_dotenv()
 
-def openai_embedding_function(documents):
+def openai_embedding_function(documents, model = "text-embedding-3-large"):
     """
     Function to process and add documents in batches to a vector store with generated UUIDs.
 
@@ -31,7 +34,9 @@ def openai_embedding_function(documents):
     None
     """
     # Variable initialization
-    embedding = OpenAIEmbeddings(model="text-embedding-3-large")
+    os.getenv("OPENAI_API_KEY")
+    
+    embedding = OpenAIEmbeddings(model= model)
 
     vector_store = Chroma(
         collection_name="langchain_collection_OpenAI_embeddings",
@@ -44,7 +49,7 @@ def openai_embedding_function(documents):
 
     # Process documents in batches of 1000
     for i in range(0, len(documents), 1000):
-        logger.debug(f'Processing documents {i} to {min(i+1000, len(documents))}...')
+        # logger.debug(f'Processing documents {i} to {min(i+1000, len(documents))}...')
         
         batch_documents = documents[i:i+1000]
         batch_uuids = uuids[i:i+1000]
@@ -59,9 +64,9 @@ def openai_embedding_function(documents):
         except Exception as e:
             logger.error(f'Error adding documents in batch {i}: {e}')
 
-    logger.info("Processing completed.")    
+    logger.debug("Processing completed - OPENAI embeddings generated.")
 
-def hf_embeddings_function(documents):
+def hf_embeddings_function(documents, model= 'all-MiniLM-l6-v2'):
     """
     Function to process and add documents in batches to a vector store with generated UUIDs.
 
@@ -71,10 +76,13 @@ def hf_embeddings_function(documents):
     Returns:
     None
     """
+    
+    if not os.getenv("HF_TOKEN"):
+           os.environ["HF_TOKEN"] = getpass.getpass("Enter your HF_TOKEN: ")
 
     # Initialize HuggingFace embeddings
     embeddings = HuggingFaceInferenceAPIEmbeddings(
-        api_key=os.getenv('HF_TOKEN'), model_name="sentence-transformers/all-MiniLM-l6-v2"
+        api_key=os.getenv('HF_TOKEN'), model_name= f"sentence-transformers/{model}"
     )
 
     # Initialize the vector store (Chroma)
@@ -89,7 +97,7 @@ def hf_embeddings_function(documents):
 
     # Add documents in batches of 1000
     for i in range(0, len(documents), 1000):
-        logger.debug(f'Processing documents {i} to {min(i+1000, len(documents))}...')
+        # logger.debug(f'Processing documents {i} to {min(i+1000, len(documents))}...')
         
         batch_documents = documents[i:i+1000]
         batch_uuids = uuids[i:i+1000]
@@ -104,8 +112,51 @@ def hf_embeddings_function(documents):
         except Exception as e:
             logger.error(f'Error adding documents in batch {i}: {e}')
 
-    logger.info("Processing completed.")
+    logger.debug("Processing completed - HuggingFace embeddings generated.")
+
+def google_embedding_function(documents, model = "text-embedding-004"):
+    """
+    Function to process and add documents in batches to a vector store with generated UUIDs.
+
+    Parameters:
+    - documents: List of documents to be added to the vector store.
+
+    Returns:
+    None
+    """
+    # Variable initialization
+    if not os.getenv("GOOGLE_API_KEY"):
+        os.environ["GOOGLE_API_KEY"] = getpass.getpass("Enter your GOOGLE_API_KEY: ")
+   
+    embeddings = GoogleGenerativeAIEmbeddings(model=f"models/{model}")
+
+    vector_store = Chroma(
+    collection_name="langchain_collection_Google_embeddings",
+    embedding_function=embeddings,
+    persist_directory="./google_collection", 
+    )
     
+    # Generate UUIDs for each document
+    uuids = [str(uuid4()) for _ in range(len(documents))]
+
+    # Process documents in batches of 1000
+    for i in range(0, len(documents), 1000):
+        # logger.debug(f'Processing documents {i} to {min(i+1000, len(documents))}...')
+        
+        batch_documents = documents[i:i+1000]
+        batch_uuids = uuids[i:i+1000]
+        
+        # Log for each batch
+        logger.debug(f'Number of documents in the batch: {len(batch_documents)}')
+        
+        # Add documents to the vector store
+        try:
+            vector_store.add_documents(documents=batch_documents, ids=batch_uuids)
+            logger.info(f'Batch of documents {i} added successfully.')
+        except Exception as e:
+            logger.error(f'Error adding documents in batch {i}: {e}')
+
+    logger.debug("Processing completed - google embeddings generated.")
 
 def measure_time(func, *args, **kwargs):
     """

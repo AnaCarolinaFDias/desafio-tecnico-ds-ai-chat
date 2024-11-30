@@ -3,5 +3,9 @@ openai
 langchain-community
 langchain-core
 langchain-openai
+langchain_google_genai
 docarray
 faiss-cpu
+ragas
+langchain-chroma
+Chroma
