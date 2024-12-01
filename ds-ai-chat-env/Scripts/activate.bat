@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\anacf.TAKENET\Desktop\Estudos\desafio-tecnico-ds-ai-chat\ds-ai-chat-env
+set VIRTUAL_ENV=D:\Repos-foradrive\Estudos\desafio-tecnico-ds-ai-chat\ds-ai-chat-env
 
 if not defined PROMPT set PROMPT=$P$G
 
