@@ -9,3 +9,4 @@ faiss-cpu
 ragas
 langchain-chroma
 Chroma
+markdown
