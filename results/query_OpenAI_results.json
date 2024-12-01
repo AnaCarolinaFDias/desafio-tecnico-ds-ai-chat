@@ -1,0 +1,49 @@
+[
+    [
+        {
+            "context": ": 644\nname: ShirtFab Classic COTU 2750 Sneakers\ndescription: Inspired by a love for the coast, this Superga fabric sneaker features a nautical stripe. With a woven shirt-fabric upper for cool comfort and timeless style. \r\n\r\nSize & Fit: Please order one-half size down from your regular shoe size. \r\n\r\nWhy We Love It: Made in Italy, Superga\u2019s legendary sneakers have been a staple on city streets and sandy beaches since 1925. \r\n\r\nConstruction: Durable upper made from woven shirt-fabric material. Natural rubber outsole with pebble traction tread. Breathable cotton lining and cushioned insole. Lace-up front with metal eyelets. \r\n\r\nAdditional Features: Superga logo at back heel. Imported.",
+            "metadata": {
+                "source": "inputs/OutdoorClothingCatalog_1000.csv",
+                "row": 644
+            },
+            "answer": "The ShirtFab Classic COTU 2750 Sneakers feature a durable upper made from woven shirt-fabric material, which is inspired by a love for the coast and incorporates a nautical stripe design. The sneakers have a natural rubber outsole with a pebble traction tread for enhanced grip. Inside, they are lined with breathable cotton and include a cushioned insole for comfort. The sneakers have a lace-up front with metal eyelets and a Superga logo located at the back heel. Additionally, they are made in Italy and have been a staple in fashion since 1925.",
+            "query": "What are the key features and construction details of the ShirtFab Classic COTU 2750 Sneakers as described in the document?"
+        },
+        {
+            "context": ": 264\nname: Fj\u00e4llr\u00e4ven Ceramic Sharpening Stone\ndescription: A sharp axe is a good axe\u2014even the best-quality axes in the world need to be tuned up occasionally. This Gr\u00e4nsfors Bruks Sharpening Stone has two grits for honing your axe blade, making it quick, easy and convenient to sharpen your blade anywhere.\r\n\r\nSpecs\r\nWeight: 6.7 oz.\r\n\r\nAdditional Features\r\nUse the coarse 180-grain side of the stone to deburr your axe head.\r\nUse the fine 600-grain side to give it a keen, polished edge.\r\nCan be used with or without water.\r\nComes with a rubber case for safe storage.\r\nImported.",
+            "metadata": {
+                "source": "inputs/OutdoorClothingCatalog_1000.csv",
+                "row": 264
+            },
+            "answer": "The Fj\u00e4llr\u00e4ven Ceramic Sharpening Stone weighs 6.7 oz. It has two grits: a coarse 180-grain side for deburring the axe head and a fine 600-grain side for polishing and sharpening the blade. The stone can be used with or without water and comes with a rubber case for safe storage.",
+            "query": "What are the specifications and features of the Fj\u00e4llr\u00e4ven Ceramic Sharpening Stone as described in the document? "
+        },
+        {
+            "context": ": 627\nname: Timeless Timber Coat Stand\ndescription: This American-made standing wooden coat rack is crafted from rustic rough-cut pine and finished by hand, making each piece truly unique. The dimensions of the rack are 66\"H x 19\"W x 19\"D, and it weighs 18 lb. The coat rack is handcrafted from rough-sawed pine, handsanded and stained, and finished with a durable low-sheen topcoat. It features iron hooks and is part of our Rustic Wooden Furniture Collection. The coat rack arrives fully assembled, and is made in the USA.",
+            "metadata": {
+                "source": "inputs/OutdoorClothingCatalog_1000.csv",
+                "row": 627
+            },
+            "answer": "The Timeless Timber Coat Stand is an American-made standing wooden coat rack crafted from rustic rough-cut pine, making each piece unique. Its dimensions are 66 inches in height, 19 inches in width, and 19 inches in depth, with a total weight of 18 pounds. The coat rack is handcrafted, handsanded, and stained, and it is finished with a durable low-sheen topcoat. It features iron hooks and is part of the Rustic Wooden Furniture Collection. Additionally, the coat rack arrives fully assembled and is made in the USA.",
+            "query": "What are the key features and specifications of the Timeless Timber Coat Stand, including its material, dimensions, weight, and any additional characteristics?"
+        },
+        {
+            "context": ": 82\nname: Mountain Explorer Outdoor Jacket\ndescription: This Men's Upland jacket is designed with improved pockets and tough fabric to withstand the most rugged environments. It features exclusive durable Uplander Cloth nylon, treated with highly water-resistant laminate to resist stains, heavy drizzle, and sharp thorns. Articulated sleeves, bi-swing back and underarm gussets offer a relaxed fit and the freedom of movement needed for fast-flying crossers. Hidden vents on back provide ample airflow, while two lower button-front cargo pockets with shell loops, front-loading game bag with zipper, dual zippered pockets, two upper handwarmer pockets, and interior zippered security pocket provide plenty of storage options. Adjustable button cuffs, corduroy trim and license loop on back complete the look. Machine wash and dry. Imported.",
+            "metadata": {
+                "source": "inputs/OutdoorClothingCatalog_1000.csv",
+                "row": 82
+            },
+            "answer": "The Mountain Explorer Outdoor Jacket is designed with several key features that enhance its suitability for rugged outdoor environments. It is made from exclusive durable Uplander Cloth nylon, which is treated with a highly water-resistant laminate to resist stains, heavy drizzle, and sharp thorns. The jacket includes articulated sleeves, a bi-swing back, and underarm gussets for a relaxed fit and freedom of movement. It also features hidden vents on the back for airflow, multiple storage options including two lower button-front cargo pockets with shell loops, a front-loading game bag with a zipper, dual zippered pockets, two upper handwarmer pockets, and an interior zippered security pocket. Additionally, the jacket has adjustable button cuffs, corduroy trim, and a license loop on the back. It is machine washable and dryable, and is imported.",
+            "query": "What are the key features of the Mountain Explorer Outdoor Jacket that make it suitable for rugged outdoor environments?"
+        },
+        {
+            "context": ": 331\nname: Weather-Ready Adirondack Chair\ndescription: Our classic All-Weather Adirondack Chair is built right here in the USA and guaranteed to last in even the toughest climates. It features overall dimensions of 35\u00be\"H x 29\"W x 35\u00be\"D, a seat area of 20\" x 17\", and a seat height of 14\"H. This chair is constructed with ecofriendly, partially recycled HDPE (high-density polyethylene) and marine-grade quality stainless-steel hardware, and weighs approximately 37 lbs. \r\n\r\nTougher and more resilient than treated wood, the HDPE used to build this chair is heavy enough to withstand winds and unaffected by wet weather and extreme temperatures. It won't rot, warp, crack, splinter, absorb moisture or ever need painting, making it ideal for outdoor use - even if left outside all year-round. This chair folds for storage and is available in six attractive, fade-resistant colors. Pair it with our All-Weather Adirondack footstool and Casco Bay Cushions, sold separately, to create the ultimate outdoor lounging setup. \r\n\r\nAssembly is required and instructions are provided. If you have any questions, please reach out to us.",
+            "metadata": {
+                "source": "inputs/OutdoorClothingCatalog_1000.csv",
+                "row": 331
+            },
+            "answer": "The Weather-Ready Adirondack Chair is constructed using ecofriendly, partially recycled HDPE (high-density polyethylene) and marine-grade quality stainless-steel hardware, making it tough and resilient compared to treated wood. It has overall dimensions of 35\u00be inches in height, 29 inches in width, and 35\u00be inches in depth, with a seat area of 20 inches by 17 inches and a seat height of 14 inches. Weighing approximately 37 lbs, this chair is designed to withstand tough climates, as it does not rot, warp, crack, splinter, or absorb moisture, and it requires no painting. It is suitable for outdoor use even if left outside year-round. Additionally, the chair folds for storage and is available in six attractive, fade-resistant colors. Assembly is required, with instructions provided.",
+            "query": "What are the key features and benefits of the Weather-Ready Adirondack Chair, including its construction materials, dimensions, and suitability for outdoor use?"
+        }
+    ]
+]
