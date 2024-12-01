@@ -1,0 +1,9 @@
+import openai
+import ssl
+
+openai.api_key = "sua-chave-aqui"
+openai.proxy = None
+
+ssl._create_default_https_context = ssl._create_unverified_context
+
+
