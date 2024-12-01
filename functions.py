@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 import getpass
 import logging
 
-
 # Configurar o logging para salvar a saída de debug em um arquivo
 logging.basicConfig(
     filename='./logs/debug_output.log',  # O arquivo onde os logs serão salvos
@@ -158,6 +157,51 @@ def google_embedding_function(documents, model = "text-embedding-004"):
 
     logger.debug("Processing completed - google embeddings generated.")
 
+def load_VectorStore(embeddings_provider):
+    try:
+        if embeddings_provider == 'HF':
+            embeddings = HuggingFaceInferenceAPIEmbeddings(
+                api_key=os.getenv('HF_TOKEN'), model_name="sentence-transformers/all-MiniLM-l6-v2"
+            )
+            directory = "./hf_collection"
+            print("HF db loaded")
+        
+        elif embeddings_provider == 'Google':
+            embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+            directory = "./google_collection"
+            print("Google db loaded")
+        
+        elif embeddings_provider == 'OpenAI':
+            embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+            directory = "./langchain_collection"
+            print("OpenAI db loaded")
+        
+        else:
+            raise ValueError(f"Unsupported embeddings provider: {embeddings_provider}")
+        
+        collection_name = f"langchain_collection_{embeddings_provider}_embeddings"
+        
+        # Verifica se o diretório existe e avisa ao usuário caso não exista
+        if not os.path.exists(directory):
+            print(f"Directory {directory} does not exist. Please create the directory before proceeding.")
+        
+        # Cria o vector store
+        vector_store = Chroma(
+            collection_name=collection_name,
+            embedding_function=embeddings,
+            persist_directory=directory
+        )  
+
+        logger.debug(f"Loading vector store from {collection_name}")
+        
+        return vector_store
+
+    except ValueError as e:
+        print(f"Error: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        
+        
 def measure_time(func, *args, **kwargs):
     """
     Measure the execution time of a given function.
