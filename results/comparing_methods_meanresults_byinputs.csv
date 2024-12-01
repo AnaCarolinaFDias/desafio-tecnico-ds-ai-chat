@@ -1,0 +1,6 @@
+user_input,faithfulness,answer_correctness,answer_relevancy,context_precision,context_recall,context_entity_recall,semantic_similarity
+What are the key features and benefits of the Arctic Wind Insulated Pullover as described in the document?,0.725,0.9659089774981395,0.9701877111209425,0.9999999999,0.8333333333333333,0.26111111083765426,1.0000000000000002
+"What are the key features and specifications of the Mountain Summit Down Jacket, and how does it perform in different temperature conditions?",0.9583333333333333,0.9999997241907937,0.9584668811043073,0.9999999999,1.0,0.5833333325277777,0.9999981630291841
+"What are the key features of the Burnt Oak Quack Call, including its design and functionality for duck hunting?",0.8571428571428572,1.0,0.9698034464555081,0.9999999999,0.9,0.7738095226048753,1.0
+"What are the key features of the Easy-Care Cotton Chambray Shirt, and how does its design cater to modern convenience?",0.9473684210526316,1.0,0.9753445257611085,0.9999999999,0.75,0.31249999960937497,1.0
+"What are the key features of the Women's Chunky Neck Blanket as described in the document, including its material composition and care instructions?",1.0,1.0,0.9539913494864655,0.9999999999,1.0,0.562499998828125,1.0

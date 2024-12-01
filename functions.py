@@ -219,61 +219,6 @@ def measure_time(func, *args, **kwargs):
     end_time = time.time()
     return result, end_time - start_time
 
-
-def baseline_retrieval(query, vector_store, n=5):
-    """
-    Perform baseline retrieval of the top-n most similar chunks.
-
-    Args:
-        query (str): The user query.
-        vector_store (object): The vector store for similarity search.
-        n (int, optional): The number of top similar chunks to retrieve. Defaults to 5.
-
-    Returns:
-        list: A list of the top-n retrieved documents.
-    """
-    retrieval_results = vector_store.similarity_search(query, k=n)
-    return retrieval_results
-
-
-def generative_retrieval(query, vector_store, model='gpt-3.5-turbo'):
-    """
-    Perform retrieval-augmented generation using a generative model.
-
-    Args:
-        query (str): The user query.
-        vector_store (object): The vector store for similarity search.
-        model (str, optional): The model name for the generative task. Defaults to 'gpt-3.5-turbo'.
-
-    Returns:
-        str: The generated response based on the retrieved documents.
-    """
-    retrieval_results = baseline_retrieval(query, vector_store)
-    llm = OpenAI(temperature=0, model=model)
-    chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=vector_store.as_retriever()
-    )
-    response = chain.run(query)
-    return response
-
-
-def evaluate_precision(results, expected_results):
-    """
-    Evaluate the precision of the retrieved results.
-
-    Args:
-        results (list): The retrieved results.
-        expected_results (list): The expected results for evaluation.
-
-    Returns:
-        float: The precision score as a value between 0 and 1.
-    """
-    precision = np.mean([1 if result in expected_results else 0 for result in results])
-    return precision
-
-
 def evaluate_time(func, *args, **kwargs):
     """
     Measure the execution time of a function without returning its result.
@@ -290,7 +235,7 @@ def evaluate_time(func, *args, **kwargs):
     return time_taken
 
 
-def compare_methods(query, vector_store, expected_results, n_chunks=5):
+def compare_time_methods(validation_examples, vector_store, embeddings_provider):
     """
     Compare the performance of baseline and generative retrieval methods.
 
@@ -304,20 +249,14 @@ def compare_methods(query, vector_store, expected_results, n_chunks=5):
         dict: A dictionary containing the comparison of time taken and precision for both methods.
     """
     # Baseline method evaluation
-    baseline_results = baseline_retrieval(query, vector_store, n=n_chunks)
-    baseline_time = evaluate_time(baseline_retrieval, query, vector_store, n=n_chunks)
-    baseline_precision = evaluate_precision(baseline_results, expected_results)
-
-    # Generative method evaluation
-    generative_results = generative_retrieval(query, vector_store)
-    generative_time = evaluate_time(generative_retrieval, query, vector_store)
-    generative_precision = evaluate_precision([generative_results], expected_results)
+    baseline_time = evaluate_time(baseline_retrieval, validation_examples, vector_store, embeddings_provider)
+    contextualize_time = evaluate_time(contextualize_query_with_categories,validation_examples, vector_store, embeddings_provider)
+    hierarchical_time = evaluate_time(hierarchical_retrieval_with_categories,validation_examples, vector_store, embeddings_provider)
 
     # Final comparison
     comparison = {
-        'Method': ['Baseline', 'Generative'],
-        'Time Taken (s)': [baseline_time, generative_time],
-        'Precision': [baseline_precision, generative_precision],
+        'Method': ['Baseline', 'Contextualize', 'Hierarchical'],
+        'Time Taken (s)': [baseline_time, contextualize_time, hierarchical_time],
     }
     
     return comparison
