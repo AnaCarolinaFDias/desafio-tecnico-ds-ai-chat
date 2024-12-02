@@ -35,7 +35,7 @@ Identificar e justificar a solução de RAG mais eficiente e eficaz, com base em
 
 ### **Pré-requisitos**
 
-1. Instale o Python 3.8+ e crie um ambiente virtual:
+1. Instale o Python e crie um ambiente virtual:
    ```bash
    python -m venv env
    source env/bin/activate  # Linux/MacOS
@@ -45,34 +45,14 @@ pip install -r requirements.txt
 
 # 📂 Estrutura do Repositório
 
-desafio-tecnico-rag/
-├── inputs/                  # Dados brutos e processados
-├── notebooks/             # Análises exploratórias e experimentos
-├── src/                   # Código-fonte principal
-│   ├── evaluate_rag.py    # Scripts para treinamento e avaliação
-│   ├── run_chatbot.py     # Aplicação interativa de teste
-│   ├── generate_report.py # Geração do relatório técnico
-├── requirements.txt       # Dependências do projeto
-└── README.md              # Documentação do repositório
-
-# 🧪 Métricas de Avaliação
-Para comparar os métodos de RAG, as seguintes métricas foram utilizadas:
-
-Precisão: Relevância dos chunks recuperados.
-Tempo de Resposta: Latência entre consulta e resposta.
-Escalabilidade: Desempenho com grandes volumes de dados.
-Satisfação: Avaliação qualitativa dos resultados gerados.
-Essas métricas foram escolhidas com base na relevância para tarefas de recuperação e geração.
-
-# 📊 Resultados
-Os resultados comparativos entre os métodos serão apresentados no relatório técnico disponível na pasta reports/.
-
-Os principais pontos incluem:
-
-Eficiência computacional.
-Relevância dos resultados para diferentes tipos de consultas.
-Justificativa da melhor solução com base nas métricas analisadas.
-
-# 🤝 Como Contribuir
-Sugestões e melhorias são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
+desafio-tecnico-ds-ai-chat/
+├── inputs/                         # Dados brutos e processados
+├── langchain_collection/           # Vector Store criado a partir do Chroma
+├── results/                        # Resultados e contextos gerados 
+├── functions.py/                   # Módulo python com as funções criadas 
+├── GeneratingRags.py/              # Módulo python para preparação e criação dos métodos RAG e geração de resultados
+├── EvaluatingRags.py/              # Módulo python para análise dos resultados
+├── evaluate_rag_notebook.ipynb     # Notebook contendo todo o processo de análise usado para construição e validação
+├── logs                            # Logs par debug das implementações e resultados
+├── requirements.txt                # Dependências do projeto
+└── README.md                       # Documentação do repositório
