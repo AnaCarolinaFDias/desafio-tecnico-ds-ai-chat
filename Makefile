@@ -22,10 +22,10 @@ typecheck: ## check for pep 484 typehints errors.
 		--disable-error-code name-defined
 
 doccheck: ## check for pep 257 Docstrings errors, in Google format.
-	python -m pydocstyle ./pipelines --convention google
+	python -m pydocstyle --convention google
 
 importformat: ## Order and format your imports.
-	python -m isort ./pipelines -m 3
+	python -m isort -m 3
 
 unittest: ## Run unit tests inside tests folder.
 	python -m pytest --verbose ./tests/

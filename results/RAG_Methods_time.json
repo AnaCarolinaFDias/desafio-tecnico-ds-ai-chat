@@ -1,0 +1,12 @@
+{
+    "Method": [
+        "Baseline",
+        "Contextualize",
+        "Hierarchical"
+    ],
+    "Time Taken (s)": [
+        12.071504592895508,
+        11.985036611557007,
+        8.64655876159668
+    ]
+}
