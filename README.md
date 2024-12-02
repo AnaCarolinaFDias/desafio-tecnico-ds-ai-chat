@@ -45,6 +45,7 @@ pip install -r requirements.txt
 
 # 📂 Estrutura do Repositório
 
+```
 desafio-tecnico-ds-ai-chat/
 ├── inputs/                         # Dados brutos e processados
 ├── langchain_collection/           # Vector Store criado a partir do Chroma
